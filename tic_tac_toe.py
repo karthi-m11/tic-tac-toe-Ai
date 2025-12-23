@@ -1,4 +1,4 @@
-# Tic-Tac-Toe AI (Minimax) - Fresh Version
+# Tic-Tac-Toe AI (Minimax) - Internship Task
 
 # Create empty board
 board = [" " for _ in range(9)]
@@ -73,13 +73,30 @@ def ai_move():
                 move = i
     board[move] = "O"
 
+# Show board positions guide
+def show_positions():
+    print("Board positions are numbered 0-8 like this:")
+    print("0 | 1 | 2")
+    print("--+---+--")
+    print("3 | 4 | 5")
+    print("--+---+--")
+    print("6 | 7 | 8\n")
+
 # Main game
-print("Welcome to Tic-Tac-Toe!")
+print("WELCOME TO TIC-TAC-TOE!")
 print("You are X | AI is O")
+print("Good luck!\n")
+
+show_positions()
 
 while True:
     show_board()
-    user_pos = int(input("Enter your move (0-8): "))
+    try:
+        user_pos = int(input("Enter your move (0-8): "))
+    except ValueError:
+        print("Please enter a valid number between 0 and 8.")
+        continue
+
     if user_pos < 0 or user_pos > 8 or board[user_pos] != " ":
         print("Invalid move, try again.")
         continue
@@ -88,7 +105,7 @@ while True:
 
     if check_winner("X"):
         show_board()
-        print("🎉 You won! Congratulations!")
+        print("🎉 Congratulations! You won!")
         break
 
     if is_draw():
@@ -100,7 +117,7 @@ while True:
 
     if check_winner("O"):
         show_board()
-        print("😔 AI won! Try again.")
+        print("😔 AI wins! Better luck next time.")
         break
 
     if is_draw():
@@ -108,5 +125,5 @@ while True:
         print("🤝 It's a draw!")
         break
 
-## Author
-Karthi Karthik
+# Keep terminal open (for double-click run)
+input("\nPress Enter to exit...")
