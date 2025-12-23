@@ -107,3 +107,6 @@ while True:
         show_board()
         print("🤝 It's a draw!")
         break
+
+## Author
+Karthi Karthik
